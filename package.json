@@ -1,24 +1,18 @@
 {
-  "name": "apiproject",
+  "name": "project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Neokrieger/apiProject.git"
+    "test": "jasmine"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Neokrieger/apiProject/issues"
-  },
-  "homepage": "https://github.com/Neokrieger/apiProject#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "cypress": "^8.7.0",
     "express": "^4.17.1",
+    "jasmine": "^3.10.0",
     "lokijs": "^1.5.12"
   }
 }

@@ -1,28 +1,43 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../util/db');
+const Process = require('../util/Process.js');
 
-router.get('/view', (req, res) => {
+const process = new Process();
 
-  console.log('Get');
+router.get('/view', async (req, res) => {
+
+  db.loadDatabase({}, function(){
+    res.json({response : db.getCollection('data').data });
+  })
 
 })
 
 router.post('/make', async (req, res) => {
 
-  console.log('Post');
+  if(process.create(req)){
+    res.json({response : "Success"});
+  }else{
+    res.json({response : "Please fill out all boxes"});
+  }
 
 })
 
 router.put('/up', (req, res) => {
 
-  console.log('Put');
+  if(process.update(req)){
+    res.json({response : "Success"});
+  }else{
+    res.json({response : "Please fill out all boxes"});
+  }
 
 })
 
 router.delete('/del', (req, res) => {
 
-  console.log('Delete');
+  if(process.delete(req)){
+    res.json({response : "Success"});
+  }
 
 })
 
